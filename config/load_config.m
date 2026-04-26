@@ -5,7 +5,9 @@ if nargin < 1 || isempty(project_root)
     project_root = fileparts(fileparts(mfilename('fullpath')));
 end
 
-addpath(genpath(project_root));
+addpath(project_root);
+addpath(genpath(fullfile(project_root, 'config')));
+addpath(genpath(fullfile(project_root, 'src')));
 
 cfg = struct();
 cfg.project.title = 'Adaptive Error-State Kalman Filtering for Indoor Robot Localization';

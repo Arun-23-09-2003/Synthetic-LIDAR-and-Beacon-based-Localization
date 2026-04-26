@@ -1,0 +1,6 @@
+case_id,case_name,use_beacon,beacon_adaptive,use_lidar,fixed_beacon_sigma_m
+dead_reckoning,Dead reckoning,0,0,0,0.55
+beacon_fixed,Beacon fixed covariance,1,0,0,0.55
+beacon_adaptive,Beacon adaptive covariance,1,1,0,0.55
+lidar_only,LiDAR only,0,0,1,0.55
+lidar_beacon_adaptive,LiDAR + adaptive beacon fusion,1,1,1,0.55
