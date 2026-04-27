@@ -4,12 +4,12 @@ Plotting is implemented in `src/plotting/generate_project_figures.m`.
 
 ## Main Function
 
-`generate_project_figures(cfg, rmse_table, availability_table, aggregate_table)` loads one representative scenario for detailed time-history plots and uses aggregate tables for summary comparisons.
+`generate_project_figures(cfg, rmse_table, availability_table, aggregate_table)` generates the full figure set for every configured scenario and uses aggregate tables for summary comparisons.
 
 ## Inputs
 
-- Saved scenario data from `data/generated/scenario_001/` by default.
-- Saved filter outputs from `results/filter_outputs/scenario_001/`.
+- Saved scenario data from each `data/generated/scenario_XXX/` folder.
+- Saved filter outputs from each `results/filter_outputs/scenario_XXX/` folder.
 - RMSE, availability, and aggregate metric tables created by `collect_results_tables.m`.
 
 ## Outputs
@@ -34,10 +34,18 @@ Figures are written to `results/figures/` with the exact required filenames:
 - `fig_rmse_comparison.png`
 - `fig_result_summary.png`
 
+The same filenames are also written per scenario:
+
+- `results/figures/scenario_001/`
+- `results/figures/scenario_002/`
+- `results/figures/scenario_003/`
+
+The root `results/figures/*.png` files are copied from the configured default scenario so the original README figure contract remains valid.
+
 ## Figure Export
 
 `src/utils/save_figure.m` uses `exportgraphics` when available and falls back to `print`. Figures are saved at the configured resolution from `config_outputs.m`.
 
 ## Important Assumptions
 
-Detailed figures use the configured representative scenario. Tables and RMSE comparison figures include all scenarios.
+Legends use explicit line handles so wall geometry does not appear as thick legend blocks. Tables and RMSE comparison figures include all scenarios.

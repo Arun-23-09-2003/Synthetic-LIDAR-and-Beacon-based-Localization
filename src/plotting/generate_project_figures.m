@@ -1,10 +1,27 @@
 function generate_project_figures(cfg, rmse_table, availability_table, aggregate_table)
 %GENERATE_PROJECT_FIGURES Create all required figures from saved outputs.
 
-scenario_idx = cfg.outputs.default_scenario_for_figures;
-data = load_plot_data(cfg, scenario_idx);
-case_results = load_plot_results(cfg, scenario_idx);
+for scenario_idx = 1:cfg.num_scenarios
+    scenario_name = scenario_folder_name(scenario_idx);
+    scenario_fig_dir = fullfile(cfg.paths.figures, scenario_name);
+    ensure_dir(scenario_fig_dir);
 
+    scenario_cfg = cfg;
+    scenario_cfg.paths.figures = scenario_fig_dir;
+
+    data = load_plot_data(cfg, scenario_idx);
+    case_results = load_plot_results(cfg, scenario_idx);
+    generate_scenario_figure_set(data, case_results, scenario_cfg, ...
+        aggregate_table, availability_table);
+end
+
+copy_default_scenario_figures(cfg);
+
+save(fullfile(cfg.paths.summary, 'figure_source_tables.mat'), ...
+    'rmse_table', 'availability_table', 'aggregate_table');
+end
+
+function generate_scenario_figure_set(data, case_results, cfg, aggregate_table, availability_table)
 plot_map_wall_thickness(data, cfg);
 plot_beacon_layout(data, cfg);
 plot_true_trajectory(data, cfg);
@@ -22,9 +39,16 @@ plot_velocity_error(case_results, cfg);
 plot_covariance_consistency(data, case_results, cfg);
 plot_rmse_comparison(cfg, aggregate_table);
 plot_result_summary(data, case_results, cfg, aggregate_table, availability_table);
+end
 
-save(fullfile(cfg.paths.summary, 'figure_source_tables.mat'), ...
-    'rmse_table', 'availability_table', 'aggregate_table');
+function copy_default_scenario_figures(cfg)
+default_name = scenario_folder_name(cfg.outputs.default_scenario_for_figures);
+source_dir = fullfile(cfg.paths.figures, default_name);
+files = dir(fullfile(source_dir, '*.png'));
+for i = 1:numel(files)
+    copyfile(fullfile(source_dir, files(i).name), ...
+        fullfile(cfg.paths.figures, files(i).name));
+end
 end
 
 function data = load_plot_data(cfg, scenario_idx)
@@ -94,13 +118,17 @@ fig = make_fig(cfg);
 axes('Parent', fig);
 hold on;
 plot_walls(data.map, false);
-plot(data.truth.p(1, :), data.truth.p(2, :), 'LineWidth', 2.0, 'Color', [0.0 0.35 0.75]);
-plot(data.truth.p(1, 1), data.truth.p(2, 1), 'go', 'MarkerFaceColor', 'g', 'MarkerSize', 8);
-plot(data.truth.p(1, end), data.truth.p(2, end), 'rs', 'MarkerFaceColor', 'r', 'MarkerSize', 8);
+h_truth = plot(data.truth.p(1, :), data.truth.p(2, :), ...
+    'LineWidth', 2.0, 'Color', [0.0 0.35 0.75]);
+h_start = plot(data.truth.p(1, 1), data.truth.p(2, 1), 'o', ...
+    'MarkerFaceColor', [0.15 0.60 0.20], 'MarkerEdgeColor', [0.05 0.25 0.08], 'MarkerSize', 8);
+h_end = plot(data.truth.p(1, end), data.truth.p(2, end), 's', ...
+    'MarkerFaceColor', [0.82 0.20 0.16], 'MarkerEdgeColor', [0.35 0.05 0.04], 'MarkerSize', 8);
 idx = 1:round(numel(data.truth.t) / 18):numel(data.truth.t);
 quiver(data.truth.p(1, idx), data.truth.p(2, idx), cos(data.truth.theta(idx)), ...
-    sin(data.truth.theta(idx)), 0.55, 'Color', [0.1 0.1 0.1], 'LineWidth', 0.9);
-legend({'Walls', 'Truth', 'Start', 'End'}, 'Location', 'bestoutside');
+    sin(data.truth.theta(idx)), 0.55, 'Color', [0.1 0.1 0.1], ...
+    'LineWidth', 0.9, 'HandleVisibility', 'off');
+legend([h_truth, h_start, h_end], {'Truth', 'Start', 'End'}, 'Location', 'bestoutside');
 format_map_axes(data.map, 'True trajectory');
 save_figure(fig, fullfile(cfg.paths.figures, 'fig_true_trajectory.png'), cfg);
 end
@@ -166,11 +194,11 @@ title('LiDAR measurement quality');
 
 subplot(2, 1, 2);
 sigma_xy = squeeze(sqrt(data.lidar_pose.R(1, 1, :)));
-plot(data.lidar_pose.t, sigma_xy, 'LineWidth', 1.4); hold on;
-stem(data.lidar_pose.t(data.lidar_pose.available), ...
+h_cov = plot(data.lidar_pose.t, sigma_xy, 'LineWidth', 1.4); hold on;
+h_available = stem(data.lidar_pose.t(data.lidar_pose.available), ...
     sigma_xy(data.lidar_pose.available), 'filled', 'MarkerSize', 3);
 grid on; ylabel('\sigma_x, \sigma_y (m)'); xlabel('Time (s)');
-legend({'Pose covariance', 'Available pose update'}, 'Location', 'best');
+legend([h_cov, h_available], {'Pose covariance', 'Available pose update'}, 'Location', 'best');
 save_figure(fig, fullfile(cfg.paths.figures, 'fig_lidar_quality.png'), cfg);
 end
 
@@ -253,18 +281,21 @@ fig = make_fig(cfg);
 axes('Parent', fig);
 hold on;
 plot_walls(data.map, false);
-plot(data.truth.p(1, :), data.truth.p(2, :), 'k-', 'LineWidth', 2.2);
-colors = lines(numel(case_results));
+line_handles = gobjects(1, numel(case_results) + 1);
+line_handles(1) = plot(data.truth.p(1, :), data.truth.p(2, :), ...
+    'k-', 'LineWidth', 2.2);
+colors = filter_case_colors(numel(case_results));
 for i = 1:numel(case_results)
     est = case_results(i).estimated_states;
-    plot(est.p_hat(1, :), est.p_hat(2, :), 'LineWidth', 1.2, 'Color', colors(i, :));
+    line_handles(i+1) = plot(est.p_hat(1, :), est.p_hat(2, :), ...
+        'LineWidth', 1.4, 'Color', colors(i, :));
 end
 legend_labels = cell(1, numel(case_results) + 1);
 legend_labels{1} = 'Truth';
 for i = 1:numel(case_results)
     legend_labels{i+1} = case_results(i).case_cfg.name;
 end
-legend(legend_labels, 'Location', 'bestoutside');
+legend(line_handles, legend_labels, 'Location', 'bestoutside');
 format_map_axes(data.map, 'Trajectory comparison');
 save_figure(fig, fullfile(cfg.paths.figures, 'fig_trajectory_comparison.png'), cfg);
 end
@@ -272,13 +303,14 @@ end
 function plot_position_error(case_results, cfg)
 fig = make_fig(cfg);
 hold on;
-colors = lines(numel(case_results));
+colors = filter_case_colors(numel(case_results));
+h_lines = gobjects(1, numel(case_results));
 for i = 1:numel(case_results)
-    plot(case_results(i).estimated_states.t, case_results(i).metrics.position_error, ...
+    h_lines(i) = plot(case_results(i).estimated_states.t, case_results(i).metrics.position_error, ...
         'LineWidth', 1.3, 'Color', colors(i, :));
 end
 grid on; xlabel('Time (s)'); ylabel('Position error (m)');
-legend_case_names(case_results);
+legend_case_names(case_results, h_lines);
 title('Position error over time');
 save_figure(fig, fullfile(cfg.paths.figures, 'fig_position_error.png'), cfg);
 end
@@ -286,13 +318,14 @@ end
 function plot_heading_error(case_results, cfg)
 fig = make_fig(cfg);
 hold on;
-colors = lines(numel(case_results));
+colors = filter_case_colors(numel(case_results));
+h_lines = gobjects(1, numel(case_results));
 for i = 1:numel(case_results)
-    plot(case_results(i).estimated_states.t, rad2deg(abs(case_results(i).metrics.heading_error)), ...
+    h_lines(i) = plot(case_results(i).estimated_states.t, rad2deg(abs(case_results(i).metrics.heading_error)), ...
         'LineWidth', 1.3, 'Color', colors(i, :));
 end
 grid on; xlabel('Time (s)'); ylabel('Absolute heading error (deg)');
-legend_case_names(case_results);
+legend_case_names(case_results, h_lines);
 title('Heading error over time');
 save_figure(fig, fullfile(cfg.paths.figures, 'fig_heading_error.png'), cfg);
 end
@@ -300,13 +333,14 @@ end
 function plot_velocity_error(case_results, cfg)
 fig = make_fig(cfg);
 hold on;
-colors = lines(numel(case_results));
+colors = filter_case_colors(numel(case_results));
+h_lines = gobjects(1, numel(case_results));
 for i = 1:numel(case_results)
-    plot(case_results(i).estimated_states.t, case_results(i).metrics.velocity_error, ...
+    h_lines(i) = plot(case_results(i).estimated_states.t, case_results(i).metrics.velocity_error, ...
         'LineWidth', 1.3, 'Color', colors(i, :));
 end
 grid on; xlabel('Time (s)'); ylabel('Velocity error (m/s)');
-legend_case_names(case_results);
+legend_case_names(case_results, h_lines);
 title('Velocity error over time');
 save_figure(fig, fullfile(cfg.paths.figures, 'fig_velocity_error.png'), cfg);
 end
@@ -372,8 +406,10 @@ format_map_axes(data.map, 'Fused trajectory');
 
 subplot(2, 2, 2);
 hold on;
+colors = filter_case_colors(numel(case_results));
 for i = 1:numel(case_results)
-    plot(case_results(i).estimated_states.t, case_results(i).metrics.position_error, 'LineWidth', 1.0);
+    plot(case_results(i).estimated_states.t, case_results(i).metrics.position_error, ...
+        'LineWidth', 1.0, 'Color', colors(i, :));
 end
 grid on; xlabel('Time (s)'); ylabel('Position error (m)');
 title('Error history');
@@ -423,7 +459,8 @@ for i = 1:numel(map.walls)
         color = [0.12 0.12 0.12];
     end
     plot([wall.x1 wall.x2], [wall.y1 wall.y2], '-', ...
-        'Color', color, 'LineWidth', 2.0 + 9.0 * wall.thickness);
+        'Color', color, 'LineWidth', 2.0 + 9.0 * wall.thickness, ...
+        'HandleVisibility', 'off');
 end
 if color_by_thickness
     colormap(gca, cmap);
@@ -462,13 +499,30 @@ theta = linspace(0, 2*pi, 160);
 x = center(1) + radius * cos(theta);
 y = center(2) + radius * sin(theta);
 patch(x, y, color, 'FaceAlpha', 0.08, 'EdgeColor', color, ...
-    'EdgeAlpha', alpha_value, 'LineStyle', '--');
+    'EdgeAlpha', alpha_value, 'LineStyle', '--', 'HandleVisibility', 'off');
 end
 
-function legend_case_names(case_results)
+function legend_case_names(case_results, handles)
 names = cell(1, numel(case_results));
 for i = 1:numel(case_results)
     names{i} = case_results(i).case_cfg.name;
 end
-legend(names, 'Location', 'best');
+legend(handles, names, 'Location', 'best');
+end
+
+function colors = filter_case_colors(num_cases)
+palette = [
+    0.35 0.35 0.35
+    0.00 0.45 0.74
+    0.20 0.58 0.20
+    0.85 0.33 0.10
+    0.49 0.18 0.56
+    0.30 0.75 0.93
+    0.64 0.08 0.18];
+
+if num_cases <= size(palette, 1)
+    colors = palette(1:num_cases, :);
+else
+    colors = lines(num_cases);
+end
 end
