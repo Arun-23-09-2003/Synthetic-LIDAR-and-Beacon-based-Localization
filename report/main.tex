@@ -1,0 +1,48 @@
+\documentclass[twocolumn]{aastex701}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+
+\graphicspath{{figures/}}
+
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\Nav}{\mathcal{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\wrap}{\operatorname{wrap}_{\pi}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+\begin{document}
+
+\title{Adaptive Error-State Kalman Filtering for Indoor Robot Localization Using Synthetic LiDAR and Beacon Measurements}
+
+\author{Arun Showry Busani.}
+\affiliation{Georgia Institute of Technology}
+\email{abusani3@gatech.edu}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\keywords{Localization, Kalman filtering, LiDAR, radio beacons, manifold methods, sensor fusion}
+
+\input{sections/introduction}
+\input{sections/system_overview}
+\input{sections/methodology}
+\input{sections/simulation_setup}
+\input{sections/experiments}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+\input{sections/appendix}
+
+\bibliographystyle{aasjournalv7}
+\bibliography{refs}
+
+\end{document}

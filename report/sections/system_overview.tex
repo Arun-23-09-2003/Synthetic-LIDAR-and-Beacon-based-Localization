@@ -1,0 +1,32 @@
+\section{System Overview}
+
+The repository is organized as a reproducible MATLAB pipeline. The top-level script \texttt{main.m} loads configuration, resets generated outputs, generates synthetic datasets, runs all filter configurations, and exports tables and figures. The modular scripts \texttt{generate\_dataset.m}, \texttt{run\_filters.m}, and \texttt{generate\_outputs.m} separate dataset creation, filtering, and post-processing.
+
+\subsection{Pipeline}
+
+For each configured scenario, \path{generate_scenario_dataset.m} creates a wall-segment map, beacon definitions, a wall-validating ground-truth trajectory, noisy prediction inputs, beacon measurements, LiDAR scans, and synthetic LiDAR pose measurements. The saved data are then loaded by \texttt{run\_filter\_case.m}, which evaluates five cases using the same truth and measurement files. Finally, \texttt{collect\_results\_tables.m} computes RMSE and sensor availability metrics, and \texttt{generate\_project\_figures.m} exports the result figures used in this manuscript.
+
+\subsection{Ground Robot State}
+
+The ground robot state is a 2D NavState matrix with heading, position, and velocity. The stored truth arrays use \texttt{truth.p} and \texttt{truth.v} as \(2 \times N\) matrices, \texttt{truth.theta} as a length-\(N\) heading sequence, and \texttt{truth.X} as \(4 \times 4 \times N\) NavState matrices. No accelerometer bias, gyroscope bias, clock state, or beacon state is estimated by the EKF.
+
+\subsection{Environment Representation}
+
+The environment is a known 2D floor plan represented by line-segment walls. Each wall stores endpoints, thickness, material factor, and a text label. Openings are represented by gaps between wall segments. The simulator uses wall geometry for trajectory validation, beacon attenuation, and LiDAR ray casting. The filter does not receive wall-crossing counts or hidden attenuation values.
+
+\subsection{Beacon and LiDAR Simulation}
+
+Beacon simulation is implemented in \texttt{simulate\_beacon\_measurements.m}. Each beacon is fixed in the map and has a range limit, penetration budget, RSSI reference, RSSI threshold, and range-noise parameters. The simulator rejects measurements when range, attenuation, RSSI, or random dropout tests fail. The filter receives only timestamp, beacon ID, measured range, RSSI, and availability.
+
+LiDAR simulation is implemented in \texttt{simulate\_lidar\_measurements.m}. The scan model ray-casts 181 beams across a \(270^\circ\) field of view with a 12 m maximum range. The EKF does not update on raw beams. Instead, the simulator produces a synthetic pose measurement and covariance whose standard deviations depend on scan quality. This matches the stated scope of localization filtering rather than scan matching or SLAM.
+
+\subsection{Estimation Backend}
+
+The estimation backend is an error-state EKF. Prediction is driven by noisy body-frame acceleration and yaw-rate measurements. Corrections are applied using scalar beacon range residuals and three-dimensional LiDAR pose residuals. The covariance is maintained in the local tangent ordering
+\begin{equation}
+    \delta x =
+    \begin{bmatrix}
+    \delta \theta & \delta p_x & \delta p_y & \delta v_x & \delta v_y
+    \end{bmatrix}^{T}.
+\end{equation}
+After each correction, \texttt{ekf\_tangent\_update.m} maps the translational parts of the correction into the local group frame and composes the result onto the nominal NavState using \texttt{navstate\_exp.m}.

@@ -1,0 +1,86 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\authorcnt{1}
+\citation{dellaert2022gtsam,gtsamConcepts,dellaert2012gtsam,dellaertKaess2017factor}
+\newlabel{FirstPage}{{}{1}{}{Doc-Start}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}System Overview}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Pipeline}{1}{subsection.2.1}\protected@file@percent }
+\citation{gtsamNavigation,gtsamNavState,forster2015imu}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Ground Robot State}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Environment Representation}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Beacon and LiDAR Simulation}{2}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Estimation Backend}{2}{subsection.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}State Definition}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:navstate}{{2}{2}{State Definition}{equation.2}{}}
+\newlabel{eq:error_state}{{4}{2}{State Definition}{equation.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}NavState Exponential Map}{2}{subsection.3.2}\protected@file@percent }
+\citation{simon2006optimal,brownHwang2012random}
+\citation{rappaport2002wireless}
+\newlabel{eq:nav_exp}{{8}{3}{NavState Exponential Map}{equation.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Prediction Model}{3}{subsection.3.3}\protected@file@percent }
+\newlabel{eq:prediction}{{14}{3}{Prediction Model}{equation.14}{}}
+\newlabel{eq:cov_prediction}{{15}{3}{Prediction Model}{equation.15}{}}
+\newlabel{eq:F}{{19}{3}{Prediction Model}{equation.19}{}}
+\newlabel{eq:G}{{20}{3}{Prediction Model}{equation.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Beacon Simulation Model}{3}{subsection.3.4}\protected@file@percent }
+\newlabel{eq:rssi}{{24}{3}{Beacon Simulation Model}{equation.24}{}}
+\citation{thrun2005probabilistic,dellaertHutchinson2023robotics}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Beacon EKF Update}{4}{subsection.3.5}\protected@file@percent }
+\newlabel{eq:beacon_H}{{30}{4}{Beacon EKF Update}{equation.30}{}}
+\newlabel{eq:adaptive_sigma}{{32}{4}{Beacon EKF Update}{equation.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}LiDAR Simulation and Pose Update}{4}{subsection.3.6}\protected@file@percent }
+\newlabel{eq:lidar_H}{{41}{4}{LiDAR Simulation and Pose Update}{equation.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}EKF Correction}{4}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Simulation Setup}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Map Structure}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Beacon Setup}{5}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}LiDAR and Prediction Setup}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Metrics}{5}{subsection.5.1}\protected@file@percent }
+\newlabel{tab:scenarios}{{1}{6}{Simulation Setup}{table.1}{}}
+\newlabel{fig:scenario_layouts}{{1}{6}{Simulation Setup}{figure.1}{}}
+\newlabel{fig:beacon_layouts}{{2}{6}{Simulation Setup}{figure.2}{}}
+\newlabel{fig:true_trajectories}{{3}{6}{Simulation Setup}{figure.3}{}}
+\newlabel{fig:sensor_behavior}{{4}{7}{LiDAR and Prediction Setup}{figure.4}{}}
+\newlabel{fig:noise_behavior}{{5}{7}{LiDAR and Prediction Setup}{figure.5}{}}
+\newlabel{fig:trajectory_comparison}{{6}{7}{Results}{figure.6}{}}
+\newlabel{fig:position_errors}{{7}{8}{Results}{figure.7}{}}
+\newlabel{fig:heading_errors}{{8}{8}{Results}{figure.8}{}}
+\newlabel{fig:rmse_comparison}{{9}{8}{Results}{figure.9}{}}
+\newlabel{tab:filter_cases}{{2}{8}{Experiments}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{8}{section.6}\protected@file@percent }
+\newlabel{tab:rmse}{{3}{9}{Results}{table.3}{}}
+\newlabel{tab:aggregate}{{4}{9}{Results}{table.4}{}}
+\newlabel{tab:availability}{{5}{9}{Results}{table.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{9}{section.7}\protected@file@percent }
+\citation{gtsamConcepts,gtsamPose2,gtsamPose3}
+\citation{gtsamPose2,gtsamPose3}
+\citation{dellaertKaess2017factor,gtsamConcepts}
+\citation{gtsamNavigation,gtsamNavState}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{10}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Implementation-Related Mathematical Background}{10}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Manifolds}{10}{subsection.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Lie Algebra}{10}{subsection.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Navigation State / NavState}{10}{subsection.A.3}\protected@file@percent }
+\bibstyle{aasjournalv7}
+\bibdata{refs}
+\bibcite{brownHwang2012random}{{1}{2012}{{R.~G. Brown \& P.~Y.~C. Hwang}}{{Brown \& Hwang}}}
+\bibcite{dellaert2012gtsam}{{2}{2012}{{F. Dellaert}}{{Dellaert}}}
+\bibcite{dellaert2022gtsam}{{3}{2022}{{F. Dellaert \& G. Contributors}}{{Dellaert \& Contributors}}}
+\bibcite{dellaertHutchinson2023robotics}{{4}{2023}{{F. Dellaert \& S. Hutchinson}}{{Dellaert \& Hutchinson}}}
+\bibcite{dellaertKaess2017factor}{{5}{2017}{{F. Dellaert \& M. Kaess}}{{Dellaert \& Kaess}}}
+\bibcite{forster2015imu}{{6}{2015}{{C. Forster {et~al.}}}{{Forster, Carlone, Dellaert, \& Scaramuzza}}}
+\bibcite{gtsamConcepts}{{7}{2026{a}}{{ {GTSAM Contributors}}}{{GTSAM Contributors}}}
+\bibcite{gtsamNavigation}{{8}{2026{b}}{{ {GTSAM Contributors}}}{{GTSAM Contributors}}}
+\bibcite{gtsamNavState}{{9}{2026{c}}{{ {GTSAM Contributors}}}{{GTSAM Contributors}}}
+\bibcite{gtsamPose2}{{10}{2026{d}}{{ {GTSAM Contributors}}}{{GTSAM Contributors}}}
+\bibcite{gtsamPose3}{{11}{2026{e}}{{ {GTSAM Contributors}}}{{GTSAM Contributors}}}
+\bibcite{rappaport2002wireless}{{12}{2002}{{T.~S. Rappaport}}{{Rappaport}}}
+\bibcite{simon2006optimal}{{13}{2006}{{D. Simon}}{{Simon}}}
+\bibcite{thrun2005probabilistic}{{14}{2005}{{S. Thrun {et~al.}}}{{Thrun, Burgard, \& Fox}}}
+\newlabel{LastPage}{{}{11}{}{}{}}
+\gdef \@abspage@last{11}

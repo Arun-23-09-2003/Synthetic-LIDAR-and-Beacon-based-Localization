@@ -1,0 +1,94 @@
+\section{Simulation Setup}
+
+All scenarios use fixed random seeds from \texttt{config\_random.m}: the global seed is 6505 and the first three scenario seeds are 650501, 650502, and 650503. The prediction rate is 50 Hz, the beacon update rate is 10 Hz, LiDAR scans are generated at 5 Hz, and LiDAR pose updates are generated at 2.5 Hz.
+
+\begin{table*}
+\centering
+\caption{Scenario definitions from \texttt{config\_maps.m}.}
+\label{tab:scenarios}
+\begin{tabular}{llrrrr}
+\toprule
+Scenario & Name & Bounds (m) & Duration (s) & Beacons & Dropout scale\\
+\midrule
+1 & Open hallway with side rooms & \(0\leq x\leq32,\ 0\leq y\leq18\) & 58 & 6 & 1.00\\
+2 & Multi-room indoor map & \(0\leq x\leq30,\ 0\leq y\leq20\) & 64 & 7 & 1.15\\
+3 & Large dense indoor map & \(0\leq x\leq42,\ 0\leq y\leq26\) & 76 & 9 & 1.30\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_map_wall_thickness.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_map_wall_thickness.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_map_wall_thickness.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Generated wall-segment maps with wall thickness metadata. The three map types are an open hallway with side rooms, a multi-room layout, and a larger dense indoor map.}
+\label{fig:scenario_layouts}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_beacon_layout.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_beacon_layout.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_beacon_layout.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Beacon placements and nominal coverage regions for the three saved scenarios. Beacon range limits and penetration budgets are scenario-specific configuration parameters.}
+\label{fig:beacon_layouts}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_true_trajectory.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_true_trajectory.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_true_trajectory.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Saved ground-truth trajectories. Requested waypoints are routed through wall openings by the wall-aware planner, and saved trajectories are rejected if sampled segments intersect walls.}
+\label{fig:true_trajectories}
+\end{figure*}
+
+\subsection{Map Structure}
+
+Each map begins with four outer boundary walls of thickness 0.35 m and material factor 2.4. Interior walls are then added according to the scenario type. The open hallway scenario contains horizontal hallway walls and vertical room partitions. The multi-room scenario contains two main vertical interior walls, horizontal partitions, and one glass divider. The large dense scenario expands the bounds and adds multiple vertical and horizontal partitions, plus an explicit upper doorway aligned with the north-corridor return leg.
+
+\subsection{Beacon Setup}
+
+Beacon positions, maximum ranges, and penetration budgets are scenario-specific. Scenario 1 uses six beacons with maximum ranges from 7.5 m to 9.0 m and penetration budgets from 0.25 to 0.36. Scenario 2 uses seven beacons with maximum ranges from 7.0 m to 8.5 m and budgets from 0.20 to 0.32. Scenario 3 uses nine beacons with maximum ranges from 7.0 m to 8.5 m and budgets from 0.18 to 0.28. The common RSSI threshold is \(-82\) dB, and the random dropout probability is \(0.04\) multiplied by the scenario dropout scale in Table~\ref{tab:scenarios}.
+
+\subsection{LiDAR and Prediction Setup}
+
+The LiDAR field of view is \(270^\circ\), with 181 beams and a 12 m maximum range. Each scan must have at least 25 valid returns for a pose measurement to be considered available, and the scan quality must exceed 0.18. The LiDAR random dropout probability is \(0.03\) multiplied by the scenario dropout scale.
+
+The prediction input is generated from the saved trajectory by differentiating velocity for world-frame acceleration, rotating it into the body frame, and differentiating unwrapped heading for yaw rate. Noisy body acceleration and yaw rate are saved in \texttt{prediction\_inputs.mat}. The filter initializes the nominal state from the first saved truth state and uses the configured initial covariance
+\begin{equation}
+P_0=\diag\left((4^\circ)^2,0.25^2,0.25^2,0.18^2,0.18^2\right).
+\end{equation}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_lidar_scan_example.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_beacon_availability.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_beacon_signal_profile.png}\\
+(a) LiDAR scan example & (b) Beacon availability & (c) Beacon signal profile
+\end{tabular}
+\caption{Representative sensor behavior from the saved figures. Panel (a) shows ray-cast LiDAR returns, panel (b) shows beacon dropout and availability over time, and panel (c) shows range/RSSI behavior for selected beacons.}
+\label{fig:sensor_behavior}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=0.46\textwidth]{scenario_002_fig_beacon_noise_model.png} &
+\includegraphics[width=0.46\textwidth]{scenario_002_fig_lidar_quality.png}\\
+(a) Beacon covariance model & (b) LiDAR scan quality
+\end{tabular}
+\caption{Representative measurement-noise behavior. The beacon filter covariance is a function of measured range and RSSI; the LiDAR pose covariance is a function of scan quality.}
+\label{fig:noise_behavior}
+\end{figure*}

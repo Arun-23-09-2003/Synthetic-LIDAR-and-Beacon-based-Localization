@@ -1,0 +1,41 @@
+\section{Experiments}
+
+Each filter case is run on the same saved scenario data, so differences between cases are due to estimator configuration rather than regenerated measurements. The cases are:
+\begin{enumerate}
+    \item Dead reckoning: prediction only.
+    \item Beacon fixed covariance: prediction plus available beacon ranges with \(0.55~\mathrm{m}\) standard deviation.
+    \item Beacon adaptive covariance: prediction plus available beacon ranges using Eq.~(\ref{eq:adaptive_sigma}).
+    \item LiDAR only: prediction plus synthetic LiDAR pose updates.
+    \item LiDAR plus adaptive beacons: prediction plus synthetic LiDAR pose updates and adaptive beacon range updates.
+\end{enumerate}
+
+\begin{table}
+\centering
+\caption{Filter case configuration.}
+\label{tab:filter_cases}
+\begin{tabular}{lccc}
+\toprule
+Case & Beacon & Adaptive & LiDAR\\
+\midrule
+Dead reckoning & No & No & No\\
+Beacon fixed & Yes & No & No\\
+Beacon adaptive & Yes & Yes & No\\
+LiDAR only & No & No & Yes\\
+LiDAR + beacon & Yes & Yes & Yes\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Metrics}
+
+Metrics are computed against the saved ground truth by \texttt{compute\_filter\_metrics.m}. The position, heading, and velocity RMSE definitions are
+\begin{align}
+    \mathrm{RMSE}_p &=
+    \sqrt{\frac{1}{N}\sum_{k=1}^{N}\norm{p_k-\hat{p}_k}^{2}},\\
+    \mathrm{RMSE}_{\theta} &=
+    \sqrt{\frac{1}{N}\sum_{k=1}^{N}
+    \wrap(\theta_k-\hat{\theta}_k)^2},\\
+    \mathrm{RMSE}_v &=
+    \sqrt{\frac{1}{N}\sum_{k=1}^{N}\norm{v_k-\hat{v}_k}^{2}}.
+\end{align}
+The exported tables also include maximum and median position error, beacon measurement availability percentage, average number of available beacons per beacon update, percentages of zero/one/two/three-or-more beacon availability, LiDAR pose availability percentage, and average LiDAR quality.

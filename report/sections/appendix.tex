@@ -1,0 +1,39 @@
+\appendix
+\section{Implementation-Related Mathematical Background}
+
+\subsection{Manifolds}
+
+A differentiable manifold is a space that is locally vector-like but not necessarily globally Euclidean. Robot orientation is the relevant example in this repository: the heading angle represents an element of \(\SO(2)\), and angles wrap modulo \(2\pi\). Treating orientation as an unconstrained Euclidean coordinate can produce ambiguous differences unless corrections are interpreted in local coordinates.
+
+GTSAM formalizes this distinction through \texttt{retract} and \texttt{localCoordinates}: \texttt{retract} maps a tangent vector at a state back onto the manifold, while \texttt{localCoordinates} computes a tangent vector between two states \citep{gtsamConcepts,gtsamPose2,gtsamPose3}. The MATLAB implementation uses the same idea directly. The EKF computes \(\delta x\in\R^5\), converts it to the local group increment \(\delta_{\mathrm{group}}\), and retracts it by
+\[
+    X^{+}=X\Exp(\delta_{\mathrm{group}}).
+\]
+Thus the covariance is Euclidean only in the tangent space. The nominal state remains a valid NavState matrix after every prediction and correction.
+
+\subsection{Lie Algebra}
+
+A Lie group is both a smooth manifold and a group. Its Lie algebra is the tangent space at the identity. For a planar pose, the group \(\SE(2)\) combines a rotation and a translation, and the exponential map converts a small tangent vector into a finite rigid-body transform. GTSAM's \texttt{Pose2} and \texttt{Pose3} documentation describes this pattern for \(\SE(2)\) and \(\SE(3)\) \citep{gtsamPose2,gtsamPose3}.
+
+The repository uses a 2D NavState extension with tangent coordinates \(\delta=(\phi,\rho_x,\rho_y,\nu_x,\nu_y)\). A corresponding algebra element can be written schematically as
+\[
+\delta^\wedge =
+\begin{bmatrix}
+\phi S_2 & \rho & \nu\\
+0_{1\times 2} & 0 & 0\\
+0_{1\times 2} & 0 & 0
+\end{bmatrix},
+\]
+where \(S_2\) is the planar skew-symmetric generator. Rather than calling a generic matrix exponential, \texttt{navstate\_exp.m} evaluates the closed-form structure used in Eq.~(\ref{eq:nav_exp}) with a third-order approximation to the left Jacobian. This is the operation used for both prediction increments and EKF correction increments.
+
+Linearization occurs in tangent coordinates. For example, the beacon Jacobian in Eq.~(\ref{eq:beacon_H}) maps a perturbation in \((\delta\theta,\delta p,\delta v)\) to a first-order range residual. After solving the linear Kalman update, the perturbation is pushed back to the manifold by composition. This is the same local-linear, global-nonlinear pattern used by manifold optimization and filtering methods \citep{dellaertKaess2017factor,gtsamConcepts}.
+
+\subsection{Navigation State / NavState}
+
+In GTSAM, \texttt{NavState} represents a navigation state containing attitude, position, and velocity, and the navigation module includes manifold and Lie-group EKF utilities for such states \citep{gtsamNavigation,gtsamNavState}. The implementation here is a planar analog:
+\[
+    X=(R(\theta),p,v).
+\]
+It excludes 3D attitude, gravity, IMU bias, and clock terms. The ground robot dynamics are therefore expressed through planar heading, 2D position, and 2D velocity.
+
+The tangent perturbation has five components. The first component perturbs heading; the next two perturb position; the final two perturb velocity. Prediction uses body-frame acceleration and yaw rate to build a local NavState increment. Measurement updates first compute a world-frame EKF correction and then rotate the position and velocity correction into the local frame before calling \(\Exp\). This distinction explains why the filter can use simple Jacobians for world-frame range and pose residuals while still applying the final state update on the NavState manifold.

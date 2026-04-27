@@ -1,0 +1,115 @@
+\section{Results}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_trajectory_comparison.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_trajectory_comparison.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_trajectory_comparison.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Trajectory comparisons for all filter cases. These figures are copied directly from \texttt{results/figures/scenario\_XXX/}.}
+\label{fig:trajectory_comparison}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_position_error.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_position_error.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_position_error.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Position error histories for all three scenarios.}
+\label{fig:position_errors}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_heading_error.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_heading_error.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_heading_error.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Heading error histories for all three scenarios. The dead-reckoning baseline drifts over long intervals, while LiDAR updates and fused LiDAR/beacon updates keep the errors bounded in the saved experiments.}
+\label{fig:heading_errors}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.30\textwidth]{scenario_001_fig_rmse_comparison.png} &
+\includegraphics[width=0.30\textwidth]{scenario_002_fig_rmse_comparison.png} &
+\includegraphics[width=0.30\textwidth]{scenario_003_fig_rmse_comparison.png}\\
+(a) Scenario 1 & (b) Scenario 2 & (c) Scenario 3
+\end{tabular}
+\caption{Scenario-level RMSE comparisons exported by the plotting pipeline.}
+\label{fig:rmse_comparison}
+\end{figure*}
+
+\begin{table*}
+\centering
+\caption{Scenario-level RMSE values from \texttt{table\_rmse\_summary.csv}.}
+\label{tab:rmse}
+\begin{tabular}{llrrr}
+\toprule
+Scenario & Case & Position RMSE (m) & Heading RMSE (rad) & Velocity RMSE (m/s)\\
+\midrule
+1 & Dead reckoning & 8.270 & 0.157 & 0.367\\
+1 & Beacon fixed covariance & 0.219 & 0.070 & 0.142\\
+1 & Beacon adaptive covariance & 0.230 & 0.073 & 0.141\\
+1 & LiDAR only & 0.109 & 0.034 & 0.087\\
+1 & LiDAR + adaptive beacon fusion & 0.089 & 0.034 & 0.085\\
+2 & Dead reckoning & 6.286 & 0.156 & 0.285\\
+2 & Beacon fixed covariance & 0.544 & 0.074 & 0.133\\
+2 & Beacon adaptive covariance & 0.421 & 0.074 & 0.119\\
+2 & LiDAR only & 0.083 & 0.025 & 0.065\\
+2 & LiDAR + adaptive beacon fusion & 0.083 & 0.025 & 0.065\\
+3 & Dead reckoning & 7.638 & 0.031 & 0.222\\
+3 & Beacon fixed covariance & 0.215 & 0.033 & 0.141\\
+3 & Beacon adaptive covariance & 0.207 & 0.032 & 0.136\\
+3 & LiDAR only & 0.099 & 0.026 & 0.117\\
+3 & LiDAR + adaptive beacon fusion & 0.095 & 0.026 & 0.117\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}
+\centering
+\caption{Aggregate RMSE values across the three scenarios.}
+\label{tab:aggregate}
+\begin{tabular}{lrrr}
+\toprule
+Case & Pos. (m) & Head. (rad) & Vel. (m/s)\\
+\midrule
+Dead reckoning & 7.398 & 0.115 & 0.291\\
+Beacon fixed & 0.326 & 0.059 & 0.139\\
+Beacon adaptive & 0.286 & 0.059 & 0.132\\
+LiDAR only & 0.0968 & 0.0285 & 0.0895\\
+LiDAR + beacon & 0.0891 & 0.0284 & 0.0890\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\scriptsize
+\caption{Sensor availability from \texttt{table\_sensor\_availability.csv}.}
+\label{tab:availability}
+\begin{tabular}{lrrr}
+\toprule
+Scenario & Beacon (\%) & Mean beacons & LiDAR (\%)\\
+\midrule
+1 & 28.7 & 1.72 & 95.9\\
+2 & 21.4 & 1.49 & 99.4\\
+3 & 16.4 & 1.48 & 94.8\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The saved results show the expected drift of the prediction-only baseline. Dead reckoning produces position RMSE values from 6.286 m to 8.270 m, with a three-scenario mean of 7.398 m. Beacon updates reduce the aggregate position RMSE by more than an order of magnitude relative to dead reckoning. The adaptive beacon covariance improves the aggregate beacon-only position RMSE from 0.326 m to 0.286 m and the aggregate velocity RMSE from 0.139 m/s to 0.132 m/s. The adaptive model is not uniformly better in every individual case: in Scenario 1, fixed beacon covariance gives 0.219 m position RMSE while adaptive covariance gives 0.230 m.
+
+The LiDAR pose update is the strongest individual correction source in these generated experiments. LiDAR-only filtering gives a mean position RMSE of 0.0968 m. Adding adaptive beacon updates gives a mean position RMSE of 0.0891 m. The fused case improves over LiDAR-only in Scenarios 1 and 3, while Scenario 2 is essentially unchanged at the displayed precision. Heading RMSE follows the same pattern: the LiDAR-only and fused cases have aggregate heading RMSE values near 0.028 rad, lower than the beacon-only cases.
+
+Sensor availability decreases with scenario complexity for beacons. The per-beacon measurement availability is 28.7\% in Scenario 1, 21.4\% in Scenario 2, and 16.4\% in Scenario 3. Average available beacons per beacon update remain between 1.48 and 1.72, so many beacon updates are geometrically limited. LiDAR pose availability remains high, between 94.8\% and 99.4\%, because the generated maps usually provide enough valid ray-cast returns and scan quality for the synthetic pose measurement.

@@ -1,0 +1,93 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+\providecommand{\dodoi}[1]{doi:~\href{http://doi.org/#1}{\nolinkurl{#1}}}
+\providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
+\providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
+
+% type= book
+\bibitem[{R.~G. Brown \& P.~Y.~C. Hwang(2012)Brown \&
+  Hwang}]{brownHwang2012random}
+Brown, R.~G., \& Hwang, P. Y.~C. 2012, {Introduction to Random Signals and
+  Applied Kalman Filtering with MATLAB Exercises}, 4th edn. (John Wiley {\&}
+  Sons)
+
+% type= techreport
+\bibitem[{F. Dellaert(2012)Dellaert}]{dellaert2012gtsam}
+Dellaert, F. 2012, {Factor Graphs and GTSAM: A Hands-on Introduction}, Tech.
+  Rep. GT-RIM-CP{\&}R-2012-002, Georgia Institute of Technology.
+\newblock \url{https://www.borg.cc.gatech.edu/papers/gtsam.html}
+
+% type= misc
+\bibitem[{F. Dellaert \& G. Contributors(2022)Dellaert \&
+  Contributors}]{dellaert2022gtsam}
+Dellaert, F., \& Contributors, G. 2022, {borglab/gtsam}, 4.2a8 Georgia Tech
+  Borg Lab, \dodoi{10.5281/zenodo.5794541}
+
+% type= misc
+\bibitem[{F. Dellaert \& S. Hutchinson(2023)Dellaert \&
+  Hutchinson}]{dellaertHutchinson2023robotics}
+Dellaert, F., \& Hutchinson, S. 2023, {Introduction to Robotics and
+  Perception},, \url{https://www.roboticsbook.org/}
+
+% type= article
+\bibitem[{F. Dellaert \& M. Kaess(2017)Dellaert \&
+  Kaess}]{dellaertKaess2017factor}
+Dellaert, F., \& Kaess, M. 2017, \bibinfo{title}{{Factor Graphs for Robot
+  Perception},} Foundations and Trends in Robotics, 6, 1,
+  \dodoi{10.1561/2300000043}
+
+% type= inproceedings
+\bibitem[{C. Forster {et~al.}(2015)Forster, Carlone, Dellaert, \&
+  Scaramuzza}]{forster2015imu}
+Forster, C., Carlone, L., Dellaert, F., \& Scaramuzza, D. 2015,
+  \bibinfo{title}{{IMU Preintegration on Manifold for Efficient Visual-Inertial
+  Maximum-a-Posteriori Estimation},} in Robotics: Science and Systems,
+  \dodoi{10.15607/RSS.2015.XI.006}
+
+% type= misc
+\bibitem[{ {GTSAM Contributors}(2026{\natexlab{a}}){GTSAM
+  Contributors}}]{gtsamConcepts}
+{GTSAM Contributors}. 2026{\natexlab{a}}, {GTSAM Concepts},,
+  \url{https://borglab.github.io/gtsam/gtsam-concepts/}
+
+% type= misc
+\bibitem[{ {GTSAM Contributors}(2026{\natexlab{b}}){GTSAM
+  Contributors}}]{gtsamNavigation}
+{GTSAM Contributors}. 2026{\natexlab{b}}, {Navigation Module},,
+  \url{https://borglab.github.io/gtsam/navigation/}
+
+% type= misc
+\bibitem[{ {GTSAM Contributors}(2026{\natexlab{c}}){GTSAM
+  Contributors}}]{gtsamNavState}
+{GTSAM Contributors}. 2026{\natexlab{c}}, {NavState},,
+  \url{https://borglab.github.io/gtsam/navstate/}
+
+% type= misc
+\bibitem[{ {GTSAM Contributors}(2026{\natexlab{d}}){GTSAM
+  Contributors}}]{gtsamPose2}
+{GTSAM Contributors}. 2026{\natexlab{d}}, {Pose2},,
+  \url{https://borglab.github.io/gtsam/pose2/}
+
+% type= misc
+\bibitem[{ {GTSAM Contributors}(2026{\natexlab{e}}){GTSAM
+  Contributors}}]{gtsamPose3}
+{GTSAM Contributors}. 2026{\natexlab{e}}, {Pose3},,
+  \url{https://borglab.github.io/gtsam/pose3/}
+
+% type= book
+\bibitem[{T.~S. Rappaport(2002)Rappaport}]{rappaport2002wireless}
+Rappaport, T.~S. 2002, {Wireless Communications: Principles and Practice}, 2nd
+  edn. (Prentice Hall)
+
+% type= book
+\bibitem[{D. Simon(2006)Simon}]{simon2006optimal}
+Simon, D. 2006, {Optimal State Estimation: Kalman, H Infinity, and Nonlinear
+  Approaches} (Wiley-Interscience)
+
+% type= book
+\bibitem[{S. Thrun {et~al.}(2005)Thrun, Burgard, \&
+  Fox}]{thrun2005probabilistic}
+Thrun, S., Burgard, W., \& Fox, D. 2005, {Probabilistic Robotics} (MIT Press)
+
+\end{thebibliography}
