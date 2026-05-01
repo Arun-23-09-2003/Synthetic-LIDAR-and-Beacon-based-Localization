@@ -1,6 +1,6 @@
 \section{Experiments}
 
-Each filter case is run on the same saved scenario data, so differences between cases are due to estimator configuration rather than regenerated measurements. The cases are:
+Each filter case is run on the same scenario data, so differences between cases are due to estimator configuration rather than regenerated measurements. The cases are:
 \begin{enumerate}
     \item Dead reckoning: prediction only.
     \item Beacon fixed covariance: prediction plus available beacon ranges with \(0.55~\mathrm{m}\) standard deviation.
@@ -28,7 +28,7 @@ LiDAR + beacon & Yes & Yes & Yes\\
 
 \subsection{Metrics}
 
-Metrics are computed against the saved ground truth by \texttt{compute\_filter\_metrics.m}. The position, heading, and velocity RMSE definitions are
+Metrics are computed by comparing the filter output to the ground truth using \texttt{compute\_filter\_metrics.m}. The position, heading, and velocity RMSE definitions are
 \begin{align}
     \mathrm{RMSE}_p &=
     \sqrt{\frac{1}{N}\sum_{k=1}^{N}\norm{p_k-\hat{p}_k}^{2}},\\

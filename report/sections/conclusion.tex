@@ -1,3 +1,45 @@
 \section{Conclusion}
 
-The repository implements a reproducible MATLAB study of indoor localization with a manifold-aware error-state EKF, synthetic LiDAR pose updates, and intermittent beacon range measurements. The nominal robot state is a 2D NavState matrix, while uncertainty and Kalman updates are carried in a five-dimensional tangent space. Across the three saved scenarios, adaptive beacon covariance improves aggregate beacon-only position RMSE from 0.326 m to 0.286 m, and LiDAR plus adaptive beacon fusion gives the best aggregate position RMSE at 0.0891 m. The strongest conclusion supported by the data is that adaptive beacon weighting is beneficial for the generated beacon-only experiments, while LiDAR pose corrections dominate the final fused localization accuracy in the current simulation setup.
+The experiments show that adaptive beacon weighting is useful in this simulation setup, but the final fused accuracy is still mainly driven by the LiDAR pose updates. The main takeaways are summarized below.
+
+\begin{enumerate}
+    \item \textbf{Adaptive beacon covariance helps in the beacon-only setting.}
+    \begin{itemize}
+        \item Adaptive beacon covariance improves the aggregate beacon-only position RMSE from 0.326 m to 0.286 m.
+
+        \item It also improves beacon-only velocity RMSE across all three scenarios.
+
+        \item This suggests that beacon measurements should be weighted based on measurement quality instead of using one fixed covariance value for all updates.
+    \end{itemize}
+
+    \item \textbf{The improvement is useful, but not universal.}
+    \begin{itemize}
+        \item The adaptive beacon filter is not better in every individual case.
+
+        \item In Scenario 1, the fixed-covariance beacon filter gives slightly better position RMSE.
+
+        \item Therefore, the result supports adaptive covariance as a useful design choice for these experiments, not as a guaranteed improvement for every map, trajectory, or beacon layout.
+    \end{itemize}
+
+    \item \textbf{LiDAR is the main driver of fused localization accuracy.}
+    \begin{itemize}
+        \item The fused LiDAR plus adaptive beacon filter gives the best aggregate position RMSE at 0.0891 m.
+
+        \item The improvement over the LiDAR-only filter is modest because the LiDAR pose measurements are frequent and usually available.
+
+        \item Since beacon measurements are intermittent and sometimes underdetermined, they mainly act as supporting corrections rather than the dominant source of localization accuracy.
+    \end{itemize}
+
+    \item \textbf{Limitations of the study.}
+    \begin{itemize}
+        \item The filter starts from the first truth state, so the study does not test global initialization.
+
+        \item The LiDAR backend uses synthetic pose measurements instead of raw scan matching.
+
+        \item The RSSI and attenuation models are synthetic, and sensor biases are not estimated as part of the filter state.
+
+        \item These assumptions keep the experiment reproducible, but they limit direct claims about real hardware performance.
+    \end{itemize}
+\end{enumerate}
+
+Overall, the strongest conclusion supported by the data is that adaptive beacon weighting improves beacon-only localization in aggregate, while LiDAR pose corrections dominate the best fused localization results.

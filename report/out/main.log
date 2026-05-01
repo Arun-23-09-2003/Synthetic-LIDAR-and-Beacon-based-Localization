@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.24)  26 APR 2026 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.24)  1 MAY 2026 16:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -569,133 +569,133 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 7.
  [1{C:/Users/aruns/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (sections/methodology.tex [2] [3] [4]) (sections/simulation_setup.tex
-<figures/scenario_001_fig_map_wall_thickness.png, id=239, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_map_wall_thickness.png, id=238, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_map_wall_thickness.png Graphic file (type png)
 <use figures/scenario_001_fig_map_wall_thickness.png>
 Package pdftex.def Info: figures/scenario_001_fig_map_wall_thickness.png  used on input line 23.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_map_wall_thickness.png, id=240, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_map_wall_thickness.png, id=239, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_map_wall_thickness.png Graphic file (type png)
 <use figures/scenario_002_fig_map_wall_thickness.png>
 Package pdftex.def Info: figures/scenario_002_fig_map_wall_thickness.png  used on input line 24.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_map_wall_thickness.png, id=241, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_map_wall_thickness.png, id=240, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_map_wall_thickness.png Graphic file (type png)
 <use figures/scenario_003_fig_map_wall_thickness.png>
 Package pdftex.def Info: figures/scenario_003_fig_map_wall_thickness.png  used on input line 25.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_001_fig_beacon_layout.png, id=242, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_beacon_layout.png, id=241, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_beacon_layout.png Graphic file (type png)
 <use figures/scenario_001_fig_beacon_layout.png>
 Package pdftex.def Info: figures/scenario_001_fig_beacon_layout.png  used on input line 35.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_beacon_layout.png, id=243, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_beacon_layout.png, id=242, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_beacon_layout.png Graphic file (type png)
 <use figures/scenario_002_fig_beacon_layout.png>
 Package pdftex.def Info: figures/scenario_002_fig_beacon_layout.png  used on input line 36.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_beacon_layout.png, id=244, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_beacon_layout.png, id=243, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_beacon_layout.png Graphic file (type png)
 <use figures/scenario_003_fig_beacon_layout.png>
 Package pdftex.def Info: figures/scenario_003_fig_beacon_layout.png  used on input line 37.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_001_fig_true_trajectory.png, id=245, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_true_trajectory.png, id=244, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_true_trajectory.png Graphic file (type png)
 <use figures/scenario_001_fig_true_trajectory.png>
 Package pdftex.def Info: figures/scenario_001_fig_true_trajectory.png  used on input line 47.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_true_trajectory.png, id=246, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_true_trajectory.png, id=245, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_true_trajectory.png Graphic file (type png)
 <use figures/scenario_002_fig_true_trajectory.png>
 Package pdftex.def Info: figures/scenario_002_fig_true_trajectory.png  used on input line 48.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_true_trajectory.png, id=247, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_true_trajectory.png, id=246, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_true_trajectory.png Graphic file (type png)
 <use figures/scenario_003_fig_true_trajectory.png>
 Package pdftex.def Info: figures/scenario_003_fig_true_trajectory.png  used on input line 49.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_001_fig_lidar_scan_example.png, id=249, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_lidar_scan_example.png, id=248, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_lidar_scan_example.png Graphic file (type png)
 <use figures/scenario_001_fig_lidar_scan_example.png>
 Package pdftex.def Info: figures/scenario_001_fig_lidar_scan_example.png  used on input line 76.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_beacon_availability.png, id=250, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_beacon_availability.png, id=249, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_beacon_availability.png Graphic file (type png)
 <use figures/scenario_002_fig_beacon_availability.png>
 Package pdftex.def Info: figures/scenario_002_fig_beacon_availability.png  used on input line 77.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_beacon_signal_profile.png, id=251, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_beacon_signal_profile.png, id=250, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_beacon_signal_profile.png Graphic file (type png)
 <use figures/scenario_003_fig_beacon_signal_profile.png>
 Package pdftex.def Info: figures/scenario_003_fig_beacon_signal_profile.png  used on input line 78.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_beacon_noise_model.png, id=252, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_beacon_noise_model.png, id=251, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_beacon_noise_model.png Graphic file (type png)
 <use figures/scenario_002_fig_beacon_noise_model.png>
 Package pdftex.def Info: figures/scenario_002_fig_beacon_noise_model.png  used on input line 88.
 (pdftex.def)             Requested size: 236.03746pt x 163.05214pt.
-<figures/scenario_002_fig_lidar_quality.png, id=253, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_lidar_quality.png, id=252, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_lidar_quality.png Graphic file (type png)
 <use figures/scenario_002_fig_lidar_quality.png>
 Package pdftex.def Info: figures/scenario_002_fig_lidar_quality.png  used on input line 89.
 (pdftex.def)             Requested size: 236.03746pt x 163.05214pt.
 ) (sections/experiments.tex) (sections/results.tex
-<figures/scenario_001_fig_trajectory_comparison.png, id=255, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_trajectory_comparison.png, id=254, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_trajectory_comparison.png Graphic file (type png)
 <use figures/scenario_001_fig_trajectory_comparison.png>
 Package pdftex.def Info: figures/scenario_001_fig_trajectory_comparison.png  used on input line 6.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_trajectory_comparison.png, id=256, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_trajectory_comparison.png, id=255, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_trajectory_comparison.png Graphic file (type png)
 <use figures/scenario_002_fig_trajectory_comparison.png>
 Package pdftex.def Info: figures/scenario_002_fig_trajectory_comparison.png  used on input line 7.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_trajectory_comparison.png, id=257, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_trajectory_comparison.png, id=256, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_trajectory_comparison.png Graphic file (type png)
 <use figures/scenario_003_fig_trajectory_comparison.png>
 Package pdftex.def Info: figures/scenario_003_fig_trajectory_comparison.png  used on input line 8.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_001_fig_position_error.png, id=258, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_position_error.png, id=257, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_position_error.png Graphic file (type png)
 <use figures/scenario_001_fig_position_error.png>
 Package pdftex.def Info: figures/scenario_001_fig_position_error.png  used on input line 18.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_position_error.png, id=259, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_position_error.png, id=258, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_position_error.png Graphic file (type png)
 <use figures/scenario_002_fig_position_error.png>
 Package pdftex.def Info: figures/scenario_002_fig_position_error.png  used on input line 19.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_position_error.png, id=260, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_position_error.png, id=259, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_position_error.png Graphic file (type png)
 <use figures/scenario_003_fig_position_error.png>
 Package pdftex.def Info: figures/scenario_003_fig_position_error.png  used on input line 20.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_001_fig_heading_error.png, id=261, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_heading_error.png, id=260, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_heading_error.png Graphic file (type png)
 <use figures/scenario_001_fig_heading_error.png>
 Package pdftex.def Info: figures/scenario_001_fig_heading_error.png  used on input line 30.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_heading_error.png, id=262, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_heading_error.png, id=261, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_heading_error.png Graphic file (type png)
 <use figures/scenario_002_fig_heading_error.png>
 Package pdftex.def Info: figures/scenario_002_fig_heading_error.png  used on input line 31.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_heading_error.png, id=263, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_heading_error.png, id=262, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_heading_error.png Graphic file (type png)
 <use figures/scenario_003_fig_heading_error.png>
 Package pdftex.def Info: figures/scenario_003_fig_heading_error.png  used on input line 32.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_001_fig_rmse_comparison.png, id=264, 828.2142pt x 572.1375pt>
+<figures/scenario_001_fig_rmse_comparison.png, id=263, 828.2142pt x 572.1375pt>
 File: figures/scenario_001_fig_rmse_comparison.png Graphic file (type png)
 <use figures/scenario_001_fig_rmse_comparison.png>
 Package pdftex.def Info: figures/scenario_001_fig_rmse_comparison.png  used on input line 42.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_002_fig_rmse_comparison.png, id=265, 828.2142pt x 572.1375pt>
+<figures/scenario_002_fig_rmse_comparison.png, id=264, 828.2142pt x 572.1375pt>
 File: figures/scenario_002_fig_rmse_comparison.png Graphic file (type png)
 <use figures/scenario_002_fig_rmse_comparison.png>
 Package pdftex.def Info: figures/scenario_002_fig_rmse_comparison.png  used on input line 43.
 (pdftex.def)             Requested size: 153.93678pt x 106.34138pt.
-<figures/scenario_003_fig_rmse_comparison.png, id=266, 828.2142pt x 572.1375pt>
+<figures/scenario_003_fig_rmse_comparison.png, id=265, 828.2142pt x 572.1375pt>
 File: figures/scenario_003_fig_rmse_comparison.png Graphic file (type png)
 <use figures/scenario_003_fig_rmse_comparison.png>
 Package pdftex.def Info: figures/scenario_003_fig_rmse_comparison.png  used on input line 44.
@@ -711,26 +711,26 @@ LaTeX Warning: A float is stuck (cannot be placed) on input line 112.
 
 Class aastex701 Warning: Deferred float stuck during \clearpage processing.
 
-[8 <./figures/scenario_001_fig_position_error.png (PNG copy)> <./figures/scenario_002_fig_position_error.png (PNG copy)> <./figures/scenario_003_fig_position_error.png (PNG copy)> <./figures/scenario_001_fig_heading_error.png (PNG copy)> <./figures/scenario_002_fig_heading_error.png (PNG copy)> <./figures/scenario_003_fig_heading_error.png (PNG copy)> <./figures/scenario_001_fig_rmse_comparison.png (PNG copy)> <./figures/scenario_002_fig_rmse_comparison.png (PNG copy)> <./figures/scenario_003_fig_rmse_comparison.png (PNG copy)>]) (sections/discussion.tex) (sections/conclusion.tex [9]) (sections/appendix.tex [10]) (c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.bbl) [11] (c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.aux)
+[8 <./figures/scenario_001_fig_position_error.png (PNG copy)> <./figures/scenario_002_fig_position_error.png (PNG copy)> <./figures/scenario_003_fig_position_error.png (PNG copy)> <./figures/scenario_001_fig_heading_error.png (PNG copy)> <./figures/scenario_002_fig_heading_error.png (PNG copy)> <./figures/scenario_003_fig_heading_error.png (PNG copy)> <./figures/scenario_001_fig_rmse_comparison.png (PNG copy)> <./figures/scenario_002_fig_rmse_comparison.png (PNG copy)> <./figures/scenario_003_fig_rmse_comparison.png (PNG copy)>]) (sections/conclusion.tex [9]) (sections/appendix.tex [10]) (c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.bbl) [11] (c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 14F7882158B1B0C22FEA739A927BA5EE;4002.
+(rerunfilecheck)             Checksum: 46185AEFDEF2E6E965398075C0CC7435;3908.
  ) 
 Here is how much of TeX's memory you used:
- 14175 strings out of 467871
- 222233 string characters out of 5418376
+ 14181 strings out of 467871
+ 222086 string characters out of 5418376
  702353 words of memory out of 5000000
- 42718 multiletter control sequences out of 15000+600000
- 643173 words of font info for 100 fonts, out of 8000000 for 9000
+ 42720 multiletter control sequences out of 15000+600000
+ 643508 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,93p,1341b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.pdf" (11 pages, 6001322 bytes).
+ 90i,12n,93p,1301b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\aruns\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/aruns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.pdf" (11 pages, 6000674 bytes).
 PDF statistics:
- 473 PDF objects out of 1000 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
- 355 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 131 named destinations out of 1000 (max. 500000)
+ 347 words of extra memory for PDF output out of 10000 (max. 10000000)
 

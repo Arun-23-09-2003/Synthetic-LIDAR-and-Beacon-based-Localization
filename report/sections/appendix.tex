@@ -5,7 +5,7 @@
 
 A differentiable manifold is a space that is locally vector-like but not necessarily globally Euclidean. Robot orientation is the relevant example in this repository: the heading angle represents an element of \(\SO(2)\), and angles wrap modulo \(2\pi\). Treating orientation as an unconstrained Euclidean coordinate can produce ambiguous differences unless corrections are interpreted in local coordinates.
 
-GTSAM formalizes this distinction through \texttt{retract} and \texttt{localCoordinates}: \texttt{retract} maps a tangent vector at a state back onto the manifold, while \texttt{localCoordinates} computes a tangent vector between two states \citep{gtsamConcepts,gtsamPose2,gtsamPose3}. The MATLAB implementation uses the same idea directly. The EKF computes \(\delta x\in\R^5\), converts it to the local group increment \(\delta_{\mathrm{group}}\), and retracts it by
+GTSAM formalizes this distinction through \texttt{retract} and \texttt{localCoordinates}: \texttt{retract} maps a tangent vector at a state back onto the manifold, while \texttt{localCoordinates} computes a tangent vector between two states \citep{gtsamConcepts,gtsamPose2,gtsamPose3}. This implementation uses the same idea. The EKF computes \(\delta x\in\R^5\), converts it to the local group increment \(\delta_{\mathrm{group}}\), and retracts it by
 \[
     X^{+}=X\Exp(\delta_{\mathrm{group}}).
 \]

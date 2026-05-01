@@ -4,7 +4,7 @@ The repository is organized as a reproducible MATLAB pipeline. The top-level scr
 
 \subsection{Pipeline}
 
-For each configured scenario, \path{generate_scenario_dataset.m} creates a wall-segment map, beacon definitions, a wall-validating ground-truth trajectory, noisy prediction inputs, beacon measurements, LiDAR scans, and synthetic LiDAR pose measurements. The saved data are then loaded by \texttt{run\_filter\_case.m}, which evaluates five cases using the same truth and measurement files. Finally, \texttt{collect\_results\_tables.m} computes RMSE and sensor availability metrics, and \texttt{generate\_project\_figures.m} exports the result figures used in this manuscript.
+For each configured scenario, \path{generate_scenario_dataset.m} creates a wall-segment map, beacon definitions, a wall-validating ground-truth trajectory, noisy prediction inputs, beacon measurements, LiDAR scans, and synthetic LiDAR pose measurements. The data is then loaded by \texttt{run\_filter\_case.m}, which evaluates five cases using the same truth and measurement files. Finally, \texttt{collect\_results\_tables.m} computes RMSE and sensor availability metrics, and \texttt{generate\_project\_figures.m} exports the result figures used in this manuscript.
 
 \subsection{Ground Robot State}
 
@@ -18,7 +18,7 @@ The environment is a known 2D floor plan represented by line-segment walls. Each
 
 Beacon simulation is implemented in \texttt{simulate\_beacon\_measurements.m}. Each beacon is fixed in the map and has a range limit, penetration budget, RSSI reference, RSSI threshold, and range-noise parameters. The simulator rejects measurements when range, attenuation, RSSI, or random dropout tests fail. The filter receives only timestamp, beacon ID, measured range, RSSI, and availability.
 
-LiDAR simulation is implemented in \texttt{simulate\_lidar\_measurements.m}. The scan model ray-casts 181 beams across a \(270^\circ\) field of view with a 12 m maximum range. The EKF does not update on raw beams. Instead, the simulator produces a synthetic pose measurement and covariance whose standard deviations depend on scan quality. This matches the stated scope of localization filtering rather than scan matching or SLAM.
+LiDAR simulation is implemented in \texttt{simulate\_lidar\_measurements.m}. The scan model ray-casts 181 beams across a \(270^\circ\) field of view with a 12 m maximum range. The EKF does not update on raw beams. Instead, the simulator produces a synthetic pose measurement and covariance whose standard deviations depend on scan quality. 
 
 \subsection{Estimation Backend}
 

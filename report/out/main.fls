@@ -399,16 +399,12 @@ INPUT .\figures\scenario_003_fig_rmse_comparison.png
 INPUT .\figures\scenario_003_fig_rmse_comparison.png
 INPUT .\figures\scenario_003_fig_rmse_comparison.png
 INPUT .\figures\scenario_003_fig_rmse_comparison.png
-INPUT .\sections\discussion.tex
-INPUT .\sections\discussion.tex
-INPUT .\sections\discussion.tex
-INPUT .\sections\discussion.tex
-INPUT sections\discussion.tex
 INPUT .\sections\conclusion.tex
 INPUT .\sections\conclusion.tex
 INPUT .\sections\conclusion.tex
 INPUT .\sections\conclusion.tex
 INPUT sections\conclusion.tex
+INPUT C:\Users\aruns\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\sections\appendix.tex
 INPUT .\sections\appendix.tex
 INPUT .\sections\appendix.tex
@@ -420,6 +416,8 @@ INPUT c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\
 INPUT c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.aux
 INPUT c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.out
 INPUT c:\Users\aruns\Documents\Gatech\Classes\Kalman Filtering\Semester Project\Synthetic LIDAR and Beacon based Localization\report\out\main.out
+INPUT C:\Users\aruns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\aruns\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\aruns\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\aruns\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\aruns\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
